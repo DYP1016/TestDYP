@@ -22,11 +22,11 @@ import java.util.List;
 
 public class ViewHolderAdapter extends BaseAdapter {
     private List<String> mData;
-    private List<Class<RxJavaActivity>> mStartActivity = new ArrayList<>();
+    private List<Class> mStartActivity = new ArrayList<>();
     private LayoutInflater inflater;
     private Context context;
 
-    public ViewHolderAdapter(Context context, List<String> mData, List<Class<RxJavaActivity>> mStartActivity) {
+    public ViewHolderAdapter(Context context, List<String> mData, List<Class> mStartActivity) {
         this.mData = mData;
         this.mStartActivity = mStartActivity;
         this.inflater = LayoutInflater.from(context);

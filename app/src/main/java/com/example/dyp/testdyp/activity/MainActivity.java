@@ -11,11 +11,11 @@ import com.example.dyp.testdyp.view.MyListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private MyListView listView;
     private ViewHolderAdapter adapter;
     private List<String> mData = new ArrayList<>();
-    private List<Class<RxJavaActivity>> mStartActivity = new ArrayList<>();
+    private List<Class> mStartActivity = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
-    private void initView() {
+    @Override
+    protected void initView() {
 //        listView = new MyListView(this,10);
         listView = (MyListView) findViewById(R.id.main_listview);
         adapter = new ViewHolderAdapter(this, mData, mStartActivity);
@@ -33,12 +34,19 @@ public class MainActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    private void initData() {
+    @Override
+    protected void initData() {
         mData.add(0, "RxJava Test");
-        mData.add(1, "RxJava Test2");
+        mData.add(1, "Recycler Test");
         for (int i=0;i<20;i++){
             mData.add(String.valueOf(i));
         }
         mStartActivity.add(0, RxJavaActivity.class);
+        mStartActivity.add(1, RecyclerViewActivity.class);
+    }
+
+    @Override
+    protected void initListener() {
+
     }
 }
