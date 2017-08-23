@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.RxJavaActivity" />
-        <activity android:name=".activity.RecyclerViewActivity"></activity>
+        <activity android:name=".activity.RecyclerViewActivity" />
     </application>
 
 </manifest>

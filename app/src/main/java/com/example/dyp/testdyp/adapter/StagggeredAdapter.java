@@ -9,58 +9,63 @@ import android.widget.TextView;
 
 import com.example.dyp.testdyp.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * Recycler 用
- * Created by dyp on 2017/8/22.
+ * Created by dyp on 2017/8/23.
  */
 
-public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> {
+public class StagggeredAdapter extends RecyclerView.Adapter<StagggeredAdapter.MyViewHolder>{
     private Context context;
-    private List<String> dataset;
+    private List<String> datas;
+    private List<Integer> itemHighs;
     private LayoutInflater inflater;
 
-    public TestAdapter(Context context,List<String> dataset){
+    public StagggeredAdapter(Context context,List<String> datas){
         this.context = context;
-        this.dataset = dataset;
+        this.datas = datas;
         this.inflater = LayoutInflater.from(context);
+
+        itemHighs = new ArrayList<>();
+        for (int i=0;i<datas.size();i++){
+            itemHighs.add((int)(100 + Math.random()*300));
+        }
     }
 
-    //将布局转化为view并传递给viewHolder
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.recycler_item_view,parent,false);
-        MyViewHolder viewHolder = new MyViewHolder(view);
-        return viewHolder;
+        return new MyViewHolder(view);
     }
 
-    //建立ViewHolder与视图中数据的关联
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.textView.setText(dataset.get(position));
+        holder.textView.setText(datas.get(position));
+        ViewGroup.LayoutParams params = holder.itemView.getLayoutParams();
+        params.height = itemHighs.get(position);
+        holder.itemView.setLayoutParams(params);
     }
 
-    //获取item的数目
     @Override
     public int getItemCount() {
-        return dataset.size();
+        return datas.size();
     }
 
     //添加一个元素
     public void addData(int pos){
-        dataset.add(pos,"insert one");
+        datas.add(pos,"insert one");
         notifyItemInserted(pos);
     }
 
     //删除一个元素
     public void removeData(int pos){
-        dataset.remove(pos);
+        datas.remove(pos);
         notifyItemRemoved(pos);
     }
 
-    //自定义ViewHolder，持有item所有的控件
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
 
         public MyViewHolder(View itemView) {

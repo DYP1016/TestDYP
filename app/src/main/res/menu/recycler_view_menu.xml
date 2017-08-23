@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/recycler_menu_listView"
+        android:title="@string/list_view"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item android:id="@+id/recycler_menu_gridView"
+        android:title="@string/grid_view"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item android:id="@+id/recycler_menu_sta_gridView"
+        android:title="@string/sta_grid_view"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item android:id="@+id/recycler_menu_add"
+        android:title="@string/add"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        />
+    <item android:id="@+id/recycler_menu_remove"
+        android:title="@string/remove"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        />
+</menu>
