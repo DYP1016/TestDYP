@@ -10,6 +10,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.dyp.testdyp.R;
@@ -34,12 +35,12 @@ public class RecyclerViewActivity extends BaseActivity {
         setContentView(R.layout.activity_recycler_view);
         initView();
         initData();
+        initView();
+        initListener();
 
         layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new TestAdapter(this,dataset);
         recyclerView.setAdapter(adapter);
-        staggeredGridAdapter = new StagggeredAdapter(this,dataset);
         //添加水平分割线
 //        recyclerView.addItemDecoration(new com.example.dyp.testdyp.utils.DividerItemDecoration(this,
 //                com.example.dyp.testdyp.utils.DividerItemDecoration.VERTICAL_LIST));
@@ -90,11 +91,25 @@ public class RecyclerViewActivity extends BaseActivity {
         for (int i =0; i <= 50 ; i++){
             dataset.add("item "+i);
         }
+        adapter = new TestAdapter(this,dataset);
+        staggeredGridAdapter = new StagggeredAdapter(this,dataset);
+
     }
 
     @Override
     protected void initListener() {
+        adapter.setOnItemClickListener(new TestAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                toast("点击了 "+position);
+            }
 
+            @Override
+            public void onItemLongClick(View view, int position) {
+                adapter.removeData(position);
+
+            }
+        });
     }
 
     @Override

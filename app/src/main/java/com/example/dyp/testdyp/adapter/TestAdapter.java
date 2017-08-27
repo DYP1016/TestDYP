@@ -20,12 +20,20 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> 
     private Context context;
     private List<String> dataset;
     private LayoutInflater inflater;
+    private OnItemClickListener onItemClickListener;
 
     public TestAdapter(Context context,List<String> dataset){
         this.context = context;
         this.dataset = dataset;
         this.inflater = LayoutInflater.from(context);
     }
+
+    //定义点击接口
+    public interface OnItemClickListener{
+        void onItemClick(View view,int position);
+        void onItemLongClick(View view,int position);
+    }
+
 
     //将布局转化为view并传递给viewHolder
     @Override
@@ -39,6 +47,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.textView.setText(dataset.get(position));
+        setUpItemEvent(holder);
     }
 
     //获取item的数目
@@ -57,6 +66,32 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> 
     public void removeData(int pos){
         dataset.remove(pos);
         notifyItemRemoved(pos);
+    }
+
+    //设置点击监听器
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.onItemClickListener = listener;
+    }
+
+    //设置item的回调
+    public void setUpItemEvent(final MyViewHolder viewHolder){
+        if (onItemClickListener != null){
+           viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   int layoutPosition = viewHolder.getLayoutPosition();
+                   onItemClickListener.onItemClick(viewHolder.itemView,layoutPosition);
+               }
+           });
+            viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int layoutPosition = viewHolder.getLayoutPosition();
+                    onItemClickListener.onItemLongClick(viewHolder.itemView,layoutPosition);
+                    return false;
+                }
+            });
+        }
     }
 
     //自定义ViewHolder，持有item所有的控件
