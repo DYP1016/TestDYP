@@ -4,15 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dyp.testdyp.activity.MainActivity">
+    tools:context="com.example.dyp.testdyp.activity.RecyclerViewActivity">
 
-
-    <com.example.dyp.testdyp.view.MyListView
-        android:id="@+id/main_listview"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="20dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        android:scrollbars="vertical" />
 </LinearLayout>
