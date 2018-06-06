@@ -1,52 +1,82 @@
 package com.example.dyp.testdyp.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 
 import com.example.dyp.testdyp.R;
 import com.example.dyp.testdyp.adapter.ViewHolderAdapter;
+import com.example.dyp.testdyp.base.BaseActivity;
+import com.example.dyp.testdyp.utils.LogUtils;
 import com.example.dyp.testdyp.view.MyListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends BaseActivity {
-    private MyListView listView;
+    @BindView(R.id.mlv_main)
+    MyListView mlvMain;
     private ViewHolderAdapter adapter;
     private List<String> mData = new ArrayList<>();
     private List<Class> mStartActivity = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initData();
-        initView();
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        LogUtils.e("start");
+        super.onCreate(savedInstanceState, persistentState);
     }
 
+
     @Override
-    protected void initView() {
-//        listView = new MyListView(this,10);
-        listView = (MyListView) findViewById(R.id.main_listview);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LogUtils.e("start");
+    }
+
+    /**
+     * 加载页面layout的id
+     */
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    /**
+     * 初始化页面布局
+     *
+     * @param savedInstanceState 恢复数据(正常恢复)
+     */
+    @Override
+    public void initView(Bundle savedInstanceState) {
         adapter = new ViewHolderAdapter(this, mData, mStartActivity);
-        listView.setAdapter(adapter);
+        mlvMain.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     * 设置各种事件的监听器
+     */
     @Override
-    protected void initData() {
-        mData.add(0, "RxJava Test");
-        mData.add(1, "Recycler Test");
-        for (int i=0;i<20;i++){
-            mData.add(String.valueOf(i));
-        }
-        mStartActivity.add(0, RxJavaActivity.class);
-        mStartActivity.add(1, RecyclerViewActivity.class);
+    public void setListener() {
+        LogUtils.e("测试");
+        mData.add("RxJava Test");
+        mStartActivity.add(RxJavaActivity.class);
+
+        mData.add("Recycler Test");
+        mStartActivity.add(RecyclerViewActivity.class);
+
+        mData.add("WIFI 切换");
+        mStartActivity.add(WifiActivity.class);
     }
 
+    /**
+     * 业务逻辑处理，主要与后端交互
+     */
     @Override
-    protected void initListener() {
+    public void processLogic() {
 
     }
 }
