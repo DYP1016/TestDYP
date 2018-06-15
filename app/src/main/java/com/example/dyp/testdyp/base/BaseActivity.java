@@ -1,12 +1,15 @@
 package com.example.dyp.testdyp.base;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.widget.Toast;
+
+import com.example.dyp.testdyp.R;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -19,6 +22,7 @@ import butterknife.Unbinder;
 public abstract class BaseActivity extends AppCompatActivity implements IActivity {
     public static final String BASE_INTENT = "BASE_INTENT";
     protected final String TAG = this.getClass().getSimpleName();
+    protected ProgressDialog mProgressDialog;
 
     private Unbinder unbinder;
     private Toast toast;
@@ -98,6 +102,26 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
         startActivity(intent);
         if (isFinish) {
             finish();
+        }
+    }
+
+    public void showLoading() {
+        if (null == this.mProgressDialog) {
+            ProgressDialog progressDialog = new ProgressDialog(this, R.style.CustomDialog);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setCancelable(true);
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            this.mProgressDialog = progressDialog;
+        }
+        if (!mProgressDialog.isShowing()) {
+            mProgressDialog.show();
+            mProgressDialog.setContentView(R.layout.publico_custom_progress_dlg);
+        }
+    }
+
+    public void hideLoading() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
         }
     }
 }

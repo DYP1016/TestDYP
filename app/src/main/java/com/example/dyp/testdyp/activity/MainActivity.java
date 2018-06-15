@@ -9,12 +9,12 @@ import com.example.dyp.testdyp.adapter.ViewHolderAdapter;
 import com.example.dyp.testdyp.base.BaseActivity;
 import com.example.dyp.testdyp.utils.LogUtils;
 import com.example.dyp.testdyp.view.MyListView;
+import com.example.dyp.testdyp.wifi.connect.WifiActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
     @BindView(R.id.mlv_main)
