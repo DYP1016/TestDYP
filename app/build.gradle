@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 
+def dbflow_version = "4.2.4"
+def sqlcipher_version = "3.5.9"
+
 android {
     compileSdkVersion 26
     buildToolsVersion "27.0.1"
@@ -45,4 +48,12 @@ dependencies {
 
     //沉浸式状态栏
     compile 'com.gyf.barlibrary:barlibrary:2.3.0'
+
+    //DbFlow
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-rx2:${dbflow_version}"
+    compile "net.zetetic:android-database-sqlcipher:${sqlcipher_version}@aar"
 }

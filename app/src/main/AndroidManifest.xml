@@ -27,6 +27,7 @@
         <activity android:name=".activity.RxJavaActivity" />
         <activity android:name=".activity.RecyclerViewActivity" />
         <activity android:name=".wifi.connect.WifiActivity" />
+        <activity android:name=".dbflow.DbFlowActivity" />
     </application>
 
 </manifest>
