@@ -22,25 +22,24 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> 
     private LayoutInflater inflater;
     private OnItemClickListener onItemClickListener;
 
-    public TestAdapter(Context context,List<String> dataset){
+    public TestAdapter(Context context, List<String> dataset) {
         this.context = context;
         this.dataset = dataset;
         this.inflater = LayoutInflater.from(context);
     }
 
     //定义点击接口
-    public interface OnItemClickListener{
-        void onItemClick(View view,int position);
-        void onItemLongClick(View view,int position);
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+
+        void onItemLongClick(View view, int position);
     }
 
 
     //将布局转化为view并传递给viewHolder
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.recycler_item_view,parent,false);
-        MyViewHolder viewHolder = new MyViewHolder(view);
-        return viewHolder;
+        return new MyViewHolder(inflater.inflate(R.layout.recycler_item_view, parent, false));
     }
 
     //建立ViewHolder与视图中数据的关联
@@ -57,37 +56,37 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolder> 
     }
 
     //添加一个元素
-    public void addData(int pos){
-        dataset.add(pos,"insert one");
+    public void addData(int pos) {
+        dataset.add(pos, "insert one");
         notifyItemInserted(pos);
     }
 
     //删除一个元素
-    public void removeData(int pos){
+    public void removeData(int pos) {
         dataset.remove(pos);
         notifyItemRemoved(pos);
     }
 
     //设置点击监听器
-    public void setOnItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.onItemClickListener = listener;
     }
 
     //设置item的回调
-    public void setUpItemEvent(final MyViewHolder viewHolder){
-        if (onItemClickListener != null){
-           viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-                   int layoutPosition = viewHolder.getLayoutPosition();
-                   onItemClickListener.onItemClick(viewHolder.itemView,layoutPosition);
-               }
-           });
+    public void setUpItemEvent(final MyViewHolder viewHolder) {
+        if (onItemClickListener != null) {
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int layoutPosition = viewHolder.getLayoutPosition();
+                    onItemClickListener.onItemClick(viewHolder.itemView, layoutPosition);
+                }
+            });
             viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
                     int layoutPosition = viewHolder.getLayoutPosition();
-                    onItemClickListener.onItemLongClick(viewHolder.itemView,layoutPosition);
+                    onItemClickListener.onItemLongClick(viewHolder.itemView, layoutPosition);
                     return false;
                 }
             });
