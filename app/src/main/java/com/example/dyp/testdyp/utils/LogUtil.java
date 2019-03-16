@@ -3,8 +3,6 @@ package com.example.dyp.testdyp.utils;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.orhanobut.logger.Logger;
-
 public class LogUtil {
 
     private static boolean allowD = true;

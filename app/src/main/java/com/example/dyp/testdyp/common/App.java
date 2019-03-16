@@ -5,8 +5,6 @@ import android.app.Application;
 import com.example.dyp.testdyp.dbflow.SQLCipherHelperImpl;
 import com.example.dyp.testdyp.dbflow.TestDatabase;
 import com.example.dyp.testdyp.utils.WifiUtil;
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.Logger;
 import com.raizlabs.android.dbflow.config.DatabaseConfig;
 import com.raizlabs.android.dbflow.config.DatabaseDefinition;
 import com.raizlabs.android.dbflow.config.FlowConfig;
@@ -25,7 +23,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
-        Logger.addLogAdapter(new AndroidLogAdapter());
         WifiUtil.getInstance().init(this);
         FlowConfig flowConfig = FlowConfig.builder(this)
                 .addDatabaseConfig(new DatabaseConfig.Builder(TestDatabase.class)
