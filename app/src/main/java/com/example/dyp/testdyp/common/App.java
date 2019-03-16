@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.example.dyp.testdyp.dbflow.SQLCipherHelperImpl;
 import com.example.dyp.testdyp.dbflow.TestDatabase;
-import com.example.dyp.testdyp.utils.WifiUtil;
+import com.dyp.util.connect.WifiUtil;
 import com.raizlabs.android.dbflow.config.DatabaseConfig;
 import com.raizlabs.android.dbflow.config.DatabaseDefinition;
 import com.raizlabs.android.dbflow.config.FlowConfig;

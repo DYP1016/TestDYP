@@ -1,4 +1,4 @@
-package com.example.dyp.testdyp.utils;
+package com.dyp.util.connect;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -11,6 +11,8 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.SystemClock;
+
+import com.dyp.util.LogUtil;
 
 import java.util.List;
 

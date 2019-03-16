@@ -18,15 +18,14 @@ import android.widget.ListView;
 import com.example.dyp.testdyp.R;
 import com.example.dyp.testdyp.base.BaseActivity;
 import com.example.dyp.testdyp.utils.LogUtils;
-import com.example.dyp.testdyp.utils.WifiConnect;
-import com.example.dyp.testdyp.utils.WifiUtil;
+import com.dyp.util.connect.WifiConnect;
+import com.dyp.util.connect.WifiUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.Observer;

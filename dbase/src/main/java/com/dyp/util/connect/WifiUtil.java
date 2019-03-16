@@ -1,4 +1,4 @@
-package com.example.dyp.testdyp.utils;
+package com.dyp.util.connect;
 
 
 import android.content.BroadcastReceiver;
@@ -6,17 +6,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkCapabilities;
-import android.net.NetworkRequest;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import android.os.SystemClock;
 import android.text.TextUtils;
+
+import com.dyp.util.LogUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
@@ -24,12 +22,10 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -109,7 +105,7 @@ public class WifiUtil {
         this.isCheckConnect = false;
         connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        LogUtils.i("切换WIFI, 目标SSID: " + ssid + " 加密方式: " + wifiCipherType.name());
+        LogUtil.i("切换WIFI, 目标SSID: " + ssid + " 加密方式: " + wifiCipherType.name());
 
         initReceiver();
         //超时设置
