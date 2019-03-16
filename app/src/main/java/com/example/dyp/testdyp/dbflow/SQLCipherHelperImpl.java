@@ -1,6 +1,7 @@
 package com.example.dyp.testdyp.dbflow;
 
-import com.example.dyp.testdyp.utils.LogUtil;
+
+import com.dyp.util.LogUtil;
 import com.raizlabs.android.dbflow.config.DatabaseDefinition;
 import com.raizlabs.android.dbflow.sqlcipher.SQLCipherOpenHelper;
 import com.raizlabs.android.dbflow.structure.database.DatabaseHelperListener;

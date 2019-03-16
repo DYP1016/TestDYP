@@ -17,7 +17,7 @@ import android.widget.ListView;
 
 import com.example.dyp.testdyp.R;
 import com.example.dyp.testdyp.base.BaseActivity;
-import com.example.dyp.testdyp.utils.LogUtils;
+import com.dyp.util.LogUtil;
 import com.dyp.util.connect.WifiConnect;
 import com.dyp.util.connect.WifiUtil;
 
@@ -161,7 +161,7 @@ public class WifiActivity extends BaseActivity {
                         if (mDatas == null) {
                             return;
                         }
-                        LogUtils.i("mDatas size = " + mDatas.size());
+                        LogUtil.i("mDatas size = " + mDatas.size());
                         mDatas = getWifiListDatas();
                         mAdapter.notifyData(mDatas);
                     }

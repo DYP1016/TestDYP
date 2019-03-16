@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 
+import com.dyp.util.LogUtil;
 import com.example.dyp.testdyp.R;
 import com.example.dyp.testdyp.adapter.ViewHolderAdapter;
 import com.example.dyp.testdyp.base.BaseActivity;
 import com.example.dyp.testdyp.dbflow.DbFlowActivity;
-import com.example.dyp.testdyp.utils.LogUtils;
 import com.example.dyp.testdyp.view.MyListView;
 import com.example.dyp.testdyp.wifi.connect.WifiActivity;
 
@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        LogUtils.e("start");
+        LogUtil.e("start");
         super.onCreate(savedInstanceState, persistentState);
     }
 
@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LogUtils.e("start");
+        LogUtil.e("start");
     }
 
     /**
@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity {
      */
     @Override
     public void setListener() {
-        LogUtils.e("测试");
+        LogUtil.e("测试");
         mData.add("RxJava Test");
         mStartActivity.add(RxJavaActivity.class);
 

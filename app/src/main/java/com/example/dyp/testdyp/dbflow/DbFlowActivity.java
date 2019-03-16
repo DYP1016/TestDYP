@@ -10,9 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.dyp.util.LogUtil;
 import com.example.dyp.testdyp.R;
 import com.example.dyp.testdyp.base.BaseActivity;
-import com.example.dyp.testdyp.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
