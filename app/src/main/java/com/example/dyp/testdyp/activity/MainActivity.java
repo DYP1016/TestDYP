@@ -9,6 +9,7 @@ import com.example.dyp.testdyp.R;
 import com.example.dyp.testdyp.adapter.ViewHolderAdapter;
 import com.example.dyp.testdyp.base.BaseActivity;
 import com.example.dyp.testdyp.dbflow.DbFlowActivity;
+import com.example.dyp.testdyp.study.StudyActivity;
 import com.example.dyp.testdyp.view.MyListView;
 import com.example.dyp.testdyp.wifi.connect.WifiActivity;
 
@@ -74,6 +75,9 @@ public class MainActivity extends BaseActivity {
 
         mData.add("DbFlow Test");
         mStartActivity.add(DbFlowActivity.class);
+
+        mData.add("学习");
+        mStartActivity.add(StudyActivity.class);
     }
 
     /**

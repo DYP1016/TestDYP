@@ -2,6 +2,7 @@ package com.example.dyp.testdyp.base;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,6 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
     public static final String BASE_INTENT = "BASE_INTENT";
     protected final String TAG = this.getClass().getSimpleName();
     protected ProgressDialog mProgressDialog;
+    private Context context;
 
     private Unbinder unbinder;
     private Toast toast;
@@ -30,6 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         if (getLayoutId() > 0) {
             setContentView(getLayoutId());
             unbinder = ButterKnife.bind(this);
@@ -46,6 +49,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IActivit
             unbinder.unbind();
             unbinder = null;
         }
+        context = null;
     }
 
     public void toast(String msg) {

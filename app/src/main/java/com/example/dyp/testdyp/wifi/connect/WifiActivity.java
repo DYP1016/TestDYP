@@ -21,6 +21,10 @@ import com.dyp.util.LogUtil;
 import com.dyp.util.connect.WifiConnect;
 import com.dyp.util.connect.WifiUtil;
 
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -143,6 +147,8 @@ public class WifiActivity extends BaseActivity {
         lvWifi.setAdapter(mAdapter);
 
         queryWifiList();
+
+        test();
     }
 
     private void queryWifiList() {
@@ -214,5 +220,25 @@ public class WifiActivity extends BaseActivity {
                 .setCancelable(false)
                 .show();
         dialog.show();
+    }
+
+    private void test() {
+        LogUtil.e("start");
+        try {
+            DatagramSocket socket = new DatagramSocket();
+            socket.setSoTimeout(20000);
+            socket.setBroadcast(true);
+            socket.bind(new InetSocketAddress(5001));
+
+            byte[] buffer = new byte[200];
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+
+            socket.receive(packet);
+
+            LogUtil.e("ret = " + packet.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
