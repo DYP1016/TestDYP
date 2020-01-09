@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 
 import com.dyp.util.LogUtil;
 
-public class MyTextView extends android.support.v7.widget.AppCompatTextView {
+public class MyTextView extends androidx.appcompat.widget.AppCompatTextView {
 
     public MyTextView(Context context) {
         super(context);

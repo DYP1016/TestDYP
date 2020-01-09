@@ -1,8 +1,9 @@
 package com.example.dyp.testdyp.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 /**

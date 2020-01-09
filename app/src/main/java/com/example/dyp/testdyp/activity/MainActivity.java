@@ -2,7 +2,7 @@ package com.example.dyp.testdyp.activity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.dyp.util.LogUtil;
 import com.example.dyp.testdyp.R;

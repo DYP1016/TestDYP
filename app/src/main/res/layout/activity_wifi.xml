@@ -27,7 +27,7 @@
             android:text="直接指定" />
     </LinearLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/srl_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -36,6 +36,6 @@
             android:id="@+id/lv_wifi"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

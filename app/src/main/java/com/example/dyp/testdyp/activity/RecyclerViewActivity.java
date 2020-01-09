@@ -3,11 +3,11 @@ package com.example.dyp.testdyp.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.PersistableBundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
