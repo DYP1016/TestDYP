@@ -59,4 +59,8 @@ dependencies {
     implementation "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
     implementation "com.github.Raizlabs.DBFlow:dbflow-rx2:${dbflow_version}"
     implementation "net.zetetic:android-database-sqlcipher:${sqlcipher_version}@aar"
+
+    //lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
+
 }

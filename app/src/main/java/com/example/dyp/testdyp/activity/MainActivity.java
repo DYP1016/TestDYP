@@ -10,6 +10,7 @@ import com.example.dyp.testdyp.R;
 import com.example.dyp.testdyp.adapter.ViewHolderAdapter;
 import com.example.dyp.testdyp.base.BaseActivity;
 import com.example.dyp.testdyp.dbflow.DbFlowActivity;
+import com.example.dyp.testdyp.lottie.LottieActivity;
 import com.example.dyp.testdyp.recycle.RecyclerView2Activity;
 import com.example.dyp.testdyp.study.StudyActivity;
 import com.example.dyp.testdyp.view.MyListView;
@@ -83,6 +84,9 @@ public class MainActivity extends BaseActivity {
 
         mData.add("翻页RecyclerView");
         mStartActivity.add(RecyclerView2Activity.class);
+
+        mData.add("Lottie");
+        mStartActivity.add(LottieActivity.class);
     }
 
     /**
