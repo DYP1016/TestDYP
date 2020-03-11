@@ -2,6 +2,7 @@ package com.example.dyp.testdyp.activity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+
 import androidx.annotation.Nullable;
 
 import com.dyp.util.LogUtil;
@@ -9,6 +10,7 @@ import com.example.dyp.testdyp.R;
 import com.example.dyp.testdyp.adapter.ViewHolderAdapter;
 import com.example.dyp.testdyp.base.BaseActivity;
 import com.example.dyp.testdyp.dbflow.DbFlowActivity;
+import com.example.dyp.testdyp.recycle.RecyclerView2Activity;
 import com.example.dyp.testdyp.study.StudyActivity;
 import com.example.dyp.testdyp.view.MyListView;
 import com.example.dyp.testdyp.wifi.connect.WifiActivity;
@@ -78,6 +80,9 @@ public class MainActivity extends BaseActivity {
 
         mData.add("学习");
         mStartActivity.add(StudyActivity.class);
+
+        mData.add("翻页RecyclerView");
+        mStartActivity.add(RecyclerView2Activity.class);
     }
 
     /**
